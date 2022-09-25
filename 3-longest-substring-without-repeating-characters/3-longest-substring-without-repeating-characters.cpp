@@ -14,7 +14,7 @@ public:
             }
             k[z] = i;
             ans = max(i - prev+1, ans);
-            //cout<<ans<<endl;
+          
             i++;
         }
         
