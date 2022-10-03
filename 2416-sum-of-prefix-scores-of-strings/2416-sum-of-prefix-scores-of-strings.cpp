@@ -7,7 +7,7 @@ class Solution {
     TrieNode root;
 public:
     void insert(string word) {
-        auto node = &root;
+        TrieNode * node = &root;
         for(char c : word) {
             if(!node->next[c - 'a']) {
                 node->next[c - 'a'] = new TrieNode();
@@ -18,7 +18,7 @@ public:
     }
 
     int prefixCnt(string s) {
-        auto node = &root;
+        TrieNode *node = &root;
         int ans = 0;
         for(char c : s) {
             ans += node->next[c - 'a']->cnt;
