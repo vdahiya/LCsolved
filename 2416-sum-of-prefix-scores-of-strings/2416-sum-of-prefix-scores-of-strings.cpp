@@ -30,10 +30,10 @@ public:
       
     }
     
-    int get_score(shared_ptr<trie> root, string &s) {
+    int get_score(shared_ptr<trie> & root, string &s) {
         
         int sc= 0;
-        shared_ptr<trie> &next = root;
+        shared_ptr<trie> next = root;
         
         for(int i = 0; i < s.size(); i++) {
             
