@@ -12,7 +12,7 @@ public:
         }
     };
     
-    void insert(string &s, shared_ptr<trie> root) {
+    void insert(string &s, shared_ptr<trie> & root) {
         
         shared_ptr<trie> it = root;
         
