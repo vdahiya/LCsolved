@@ -14,23 +14,23 @@ public:
     
     void insert(string &s, shared_ptr<trie>  root) {
         
-        shared_ptr<trie> it = root;
+        //shared_ptr<trie> &it = root;
         
         
         for(int i = 0; i < s.size(); i++) {
-            if(!it->next[s[i]-'a']) {
+            if(!root->next[s[i]-'a']) {
                 auto here = make_shared<trie>();
-                it->next[s[i]-'a'] = here;
+                root->next[s[i]-'a'] = here;
             }
-            it->next[s[i]-'a']->score+=1;
-            it = it->next[s[i]-'a'];
+            root->next[s[i]-'a']->score+=1;
+            root = root->next[s[i]-'a'];
         }
         
         
       
     }
     
-    int get_score(shared_ptr<trie> & root, string &s) {
+    int get_score(shared_ptr<trie>  & root, string &s) {
         
         int sc= 0;
         shared_ptr<trie> next = root;
