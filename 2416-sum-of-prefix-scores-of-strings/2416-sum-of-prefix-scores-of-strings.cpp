@@ -14,16 +14,16 @@ public:
     
     void insert(string &s, shared_ptr<trie>  root) {
         
-        //shared_ptr<trie> &it = root;
+        shared_ptr<trie> &it = root;
         
         
         for(int i = 0; i < s.size(); i++) {
             if(!root->next[s[i]-'a']) {
                 auto here = make_shared<trie>();
-                root->next[s[i]-'a'] = here;
+                it->next[s[i]-'a'] = here;
             }
-            root->next[s[i]-'a']->score+=1;
-            root = root->next[s[i]-'a'];
+            it->next[s[i]-'a']->score+=1;
+            it = it->next[s[i]-'a'];
         }
         
         
@@ -46,10 +46,10 @@ public:
     vector<int> sumPrefixScores(vector<string>& words) {
         
         shared_ptr<trie> root = make_shared<trie>();
-        //cout<<root<<endl;
+        cout<<root<<endl;
         shared_ptr<trie> &orig = root;
         for(auto &k:words) {
-            //cout<<root<<endl;
+            cout<<root<<endl;
             insert(k, root);
         }
         
