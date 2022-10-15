@@ -2,7 +2,7 @@ class Solution {
 public:
     int dp[40001];
     
-    int get(string &s, int index, vector<vector<int>> &check) {
+    int get(string &s, int index) {
         
         
         if(dp[index] != -1) {
@@ -14,7 +14,7 @@ public:
             //if (s.compare(i, len, s, i + len, len) == 0)
             //if(s.substr(index, i) == s.substr(i+ index, i)) {
             if (s.compare(index, i, s, i+index, i) == 0) {
-                res = max ( res , 1+ get(s, index+i, check));
+                res = max ( res , 1+ get(s, index+i));
             }
         }
         
@@ -26,18 +26,8 @@ public:
     
     int deleteString(string s) {
         
-        memset(dp, -1, sizeof(dp));
-        
-        vector<vector<int>> check;
-        /*for(auto &z:check) {
-            z.resize(s.size(), 0);
-        }*/
-        
-        //memset(check, 0, sizeof(check));
-        
-        
-        
-        int l = get(s, 0, check);
+        memset(dp, -1, sizeof(dp)); 
+        int l = get(s, 0);
         
         return l;
         
