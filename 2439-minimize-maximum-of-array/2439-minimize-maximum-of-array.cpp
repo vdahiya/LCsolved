@@ -32,11 +32,11 @@ public:
             
             int mid = (low+high)/2;
             
-            if(!satisfy(nums, mid)) {
+            if(satisfy(nums, mid)) {
                 
-                low = mid+1;
-            }else {
                 high = mid;
+            }else {
+                low = mid+1;
             }
         }
         
