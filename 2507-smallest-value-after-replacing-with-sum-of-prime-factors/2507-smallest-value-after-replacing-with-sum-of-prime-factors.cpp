@@ -18,7 +18,10 @@ private:
     }
 public:
     int smallestValue(int n) {
-        while(n > 5) {
+        if(n ==4) {
+            return 4;
+        }
+        while(n > 1) {
             vector<int> primes = primeFactors(n);
             if(primes.size() <= 1) 
                 break;
